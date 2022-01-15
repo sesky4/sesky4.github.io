@@ -36,7 +36,7 @@ bool compare_and_swap(T& old_v, T& new_v) {
 
 由于Lock()操作相较于value的read操作而言更为昂贵，因此可以进一步优化为：
 ```
-bool compare_and_exchange(T& old_v, T& new_v) {
+bool compare_and_swap(T& old_v, T& new_v) {
   T tmp = value;
   
   // fail fast: 
@@ -66,7 +66,7 @@ bool compare_and_exchange(T& old_v, T& new_v) {
 
 C++中CAS操作有`atomic_compare_exchange_weak`和`atomic_compare_exchange_strong`，二者有什么区别？
 
-`atomic_compare_exchange_strong`就如同上面的`compare_and_exchange`伪代码实现
+`atomic_compare_exchange_strong`就如同上面的`compare_and_swap`伪代码实现
 
 `atomic_compare_exchange_weak`伪代码如下：
 ```
