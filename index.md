@@ -1,3 +1,4 @@
 ## 目录
 
-- [atomic](atomic.html)
+- c++
+  - [atomic](cpp/atomic.html)
