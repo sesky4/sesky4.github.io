@@ -5,9 +5,6 @@
 
 ## Atomic
 - C++中Atomic不支持乘法，因为硬件通常都不支持
-- 
-
-
 
 ## CAS(Compare-and-swap)操作
 
@@ -20,8 +17,8 @@ value = value == old_v ? new_v : value
 
 解决该问题就要加锁使得`value = value == old_v ? new_v : value`这行代码不能被多个cpu核心同时执行，伪代码：
 ```
-bool compare_and_exchange(T& old_v, T& new_v) {
-  Lock(); // Lock是cpu
+bool compare_and_swap(T& old_v, T& new_v) {
+  Lock(); // Lock机制由cpu内部提供
   
   T tmp = value;
   
